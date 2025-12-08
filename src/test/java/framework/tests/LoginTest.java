@@ -15,10 +15,12 @@ public class LoginTest extends BaseTest {
 		LoginPage loginPage = new LoginPage(getDriver());
 
 		loginPage.login("standard_user", "secret_sauce");
+//		loginPage.login(Storage.assignData("$UserName"),Storage.assignData( "$Password"));
 
+		boolean urlChanged =  WaitUtils.waitForUrlContains("inventory.html");
+		
 		String currentUrl = driver.getCurrentUrl();
 		
-		boolean urlChanged =  WaitUtils.waitForUrlContains("inventory.html");
 		Assert.assertTrue("Expected to navigate to inventory page, but was:" + currentUrl,
 				urlChanged);
 

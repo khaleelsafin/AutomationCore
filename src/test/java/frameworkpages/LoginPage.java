@@ -20,11 +20,9 @@ public class LoginPage {
 	}
 
 	public void login(String userName, String Password) {
-		
 
 		WaitUtils.waitForVisible(txtUsername).sendKeys(userName);
 		WaitUtils.waitForVisible(txtPassword).sendKeys(Password);
-
 		WaitUtils.waitforClickable(btnLogin).click();
 	}
 
