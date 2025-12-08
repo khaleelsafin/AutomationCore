@@ -3,6 +3,7 @@ package framework.tests;
 import org.testng.annotations.Test;
 
 import framework.base.BaseTest;
+import framework.utils.WaitUtils;
 import frameworkpages.LoginPage;
 import junit.framework.Assert;
 
@@ -16,8 +17,10 @@ public class LoginTest extends BaseTest {
 		loginPage.login("standard_user", "secret_sauce");
 
 		String currentUrl = driver.getCurrentUrl();
+		
+		boolean urlChanged =  WaitUtils.waitForUrlContains("inventory.html");
 		Assert.assertTrue("Expected to navigate to inventory page, but was:" + currentUrl,
-				currentUrl.contains("/inventory.html"));
+				urlChanged);
 
 	}
 
