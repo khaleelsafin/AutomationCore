@@ -17,19 +17,19 @@ public class WaitUtils {
 	
 	
 	public static WebElement waitForVisible(By locator) {
-		WebDriver driver = DriverManager.getdriver();
+		WebDriver driver = DriverManager.getDriver();
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_WAIT));
 		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 	}
 	
 	public static WebElement waitforClickable(By locator) {
-		WebDriver driver = DriverManager.getdriver();
+		WebDriver driver = DriverManager.getDriver();
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_WAIT));
 		return wait.until(ExpectedConditions.elementToBeClickable(locator));
 	}
 	
 	public static boolean waitForUrlContains(String keyword) {
-		WebDriver driver = DriverManager.getdriver();
+		WebDriver driver = DriverManager.getDriver();
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_WAIT));
 		return wait.until(ExpectedConditions.urlContains(keyword));
 	}

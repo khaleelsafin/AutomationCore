@@ -18,17 +18,14 @@ public class ReportManager {
 		if (extent != null) {
 			return;
 		}
-
 		ExtentSparkReporter spark = new ExtentSparkReporter("target/ExtentReport.html");
 
 		spark.config().setReportName("Automation Test Report");
 		spark.config().setDocumentTitle("Test Exectution Report");
-
 		extent = new ExtentReports();
 		extent.attachReporter(spark);
 		extent.setSystemInfo("Project", "SauceDemo Automation");
 		extent.setSystemInfo("Tester", "Khaleel");
-
 	}
 
 	public static void flushReports() {
@@ -40,6 +37,10 @@ public class ReportManager {
 	public static void startTest(String TestName, String TestDescription) {
 		ExtentTest extentTest = extent.createTest(TestName, TestDescription);
 		test.set(extentTest);
+	}
+	
+	public static ExtentTest getTest() {
+		return test.get();
 	}
 
 	public static void unload() {

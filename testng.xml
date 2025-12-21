@@ -1,5 +1,9 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="SauceDemoSuite">
+<suite name="SauceDemoSuite" parallel="tests" thread-count="2">
+	<listeners>
+		<listener class-name="framework.listeners.TestListener"></listener>
+	</listeners>
+
 	<test name="LoginTests">
 		<classes>
 			<class name="framework.tests.LoginTest" />

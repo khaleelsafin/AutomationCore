@@ -14,11 +14,11 @@ import framework.base.DriverManager;
 public class ScreenshotUtils {
 	
 	public static String takeScreenshot(String testname) {
-		File srcFile = ((TakesScreenshot) DriverManager.getdriver()).getScreenshotAs(OutputType.FILE);
+		File srcFile = ((TakesScreenshot) DriverManager.getDriver()).getScreenshotAs(OutputType.FILE);
 		
 		
 		String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());	
-		String screenshotPath = "target/screenshots/"+ testname + "_" + timestamp + ".png";
+		String screenshotPath = System.getProperty("user.dir") + "/target/screenshots/"+ testname + "_" + timestamp + ".png";
 		
 		File destFile = new File(screenshotPath);
 		

@@ -15,7 +15,7 @@ public class DriverManager {
 
 	}
 
-	public static WebDriver getdriver() {
+	public static WebDriver getDriver() {
 		if (driver == null) {
 			throw new IllegalStateException("Driver is not initialized. Call createDriver() first.");
 		}

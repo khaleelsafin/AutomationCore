@@ -2,7 +2,6 @@ package frameworkpages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
 import framework.utils.WaitUtils;
 
 public class LoginPage {

@@ -2,7 +2,10 @@ package framework.tests;
 
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.Status;
+
 import framework.base.BaseTest;
+import framework.reporting.ReportManager;
 import framework.utils.WaitUtils;
 import frameworkpages.LoginPage;
 import junit.framework.Assert;
@@ -14,15 +17,19 @@ public class LoginTest extends BaseTest {
 
 		LoginPage loginPage = new LoginPage(getDriver());
 
+		ReportManager.getTest().log(Status.INFO, "Logging in with standard user");
 		loginPage.login("standard_user", "secret_sauce");
-//		loginPage.login(Storage.assignData("$UserName"),Storage.assignData( "$Password"));
 
 		boolean urlChanged =  WaitUtils.waitForUrlContains("inventory.html");
 		
 		String currentUrl = driver.getCurrentUrl();
 		
+		ReportManager.getTest().log(Status.INFO, "Verifying navigation to the inventory page");
+		
 		Assert.assertTrue("Expected to navigate to inventory page, but was:" + currentUrl,
 				urlChanged);
+		
+		Assert.fail();
 
 	}
 
